@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abbas Store - Admin Dashboard</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0b0b;
+  color: white;
+}
+
+header {
+  background: #111;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #f5ad00;
+}
+
+header h1 {
+  color: #f5ad00;
+  margin: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #151515;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #f5ad00;
+}
+
+input, select {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #222;
+  color: white;
+  font-size: 16px;
+}
+
+button {
+  border: none;
+  padding: 13px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.add {
+  background: #f5ad00;
+  color: black;
+}
+
+.delete {
+  background: #d62828;
+  color: white;
+}
+
+.edit {
+  background: #444;
+  color: white;
+}
+
+.product {
+  background: #101010;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 12px;
+}
+
+.product img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #f5ad00;
+  font-weight: bold;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #f5ad00;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>👑 Abbas Store</h1>
+  <p>Admin Dashboard</p>
+</header>
+
+<div class="container">
+
+<a class="back" href="index.html">← Back to Store</a>
+
+<div class="card">
+  <h2>➕ Add Product</h2>
+
+  <input id="name" type="text" placeholder="Product Name">
+
+  <input id="price" type="number" placeholder="Price (PKR)">
+
+  <input id="image" type="text" placeholder="Product Image URL">
+
+  <input id="stock" type="number" placeholder="Stock Quantity">
+
+  <button class="add" onclick="addProduct()">Add Product</button>
+</div>
+
+<div class="card">
+  <h2>📦 Products</h2>
+  <div id="products"></div>
+</div>
+
+</div>
+
+<script>
+
+let products = JSON.parse(localStorage.getItem("abbasProducts")) || [];
+
+function saveProducts() {
+  localStorage.setItem("abbasProducts", JSON.stringify(products));
+}
+
+function addProduct() {
+
+  const name = document.getElementById("name").value;
+  const price = document.getElementById("price").value;
+  const image = document.getElementById("image").value;
+  const stock = document.getElementById("stock").value;
+
+  if (!name || !price) {
+    alert("Product name aur price zaroor enter karein.");
+    return;
+  }
+
+  products.push({
+    id: Date.now(),
+    name: name,
+    price: price,
+    image: image,
+    stock: stock || 0
+  });
+
+  saveProducts();
+
+  document.getElementById("name").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("image").value = "";
+  document.getElementById("stock").value = "";
+
+  displayProducts();
+
+  alert("Product add ho gaya!");
+}
+
+function displayProducts() {
+
+  const box = document.getElementById("products");
+
+  box.innerHTML = "";
+
+  if (products.length === 0) {
+    box.innerHTML = "<p>Abhi koi product add nahi hua.</p>";
+    return;
+  }
+
+  products.forEach(product => {
+
+    box.innerHTML += `
+      <div class="product">
+
+        ${product.image ? `<img src="${product.image}" alt="${product.name}">` : ""}
+
+        <h3>${product.name}</h3>
+
+        <p class="price">Rs. ${product.price}</p>
+
+        <p>Stock: ${product.stock}</p>
+
+        <button class="delete" onclick="deleteProduct(${product.id})">
+          Delete
+        </button>
+
+      </div>
+    `;
+  });
+}
+
+function deleteProduct(id) {
+
+  if (confirm("Kya aap ye product delete karna chahte hain?")) {
+
+    products = products.filter(product => product.id !== id);
+
+    saveProducts();
+
+    displayProducts();
+  }
+}
+
+displayProducts();
+
+</script>
+
+</body>
+</html>
