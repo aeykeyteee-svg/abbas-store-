@@ -19,9 +19,179 @@ body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}header{
 <div class="card"><h2>📦 Products</h2><div id="products">Loading...</div></div>
 </main>
 <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import {getFirestore,collection,getDocs,doc,setDoc,deleteDoc} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  get,
+  set,
+  remove
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
 const firebaseConfig = {
+  apiKey: "AIzaSyBVQH_n3bbKqSFiZeyzmPC8_cqAzqnOz0Y",
+  authDomain: "abbas-store.firebaseapp.com",
+  projectId: "abbas-store",
+  storageBucket: "abbas-store.firebasestorage.app",
+  messagingSenderId: "750637556641",
+  appId: "1:750637556641:web:b78ea90d4ee55fe0d521e0",
+  measurementId: "G-7SL6JRPRYT"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+let editing = null;
+
+const $ = id => document.getElementById(id);
+const status = text => $("status").textContent = text;
+
+async function load() {
+  $("products").textContent = "Loading...";
+
+  try {
+    const snapshot = await get(ref(db, "products"));
+
+    if (!snapshot.exists()) {
+      $("products").innerHTML =
+        '<p class="muted">No products yet.</p>';
+      return;
+    }
+
+    $("products").innerHTML = "";
+
+    const products = snapshot.val();
+
+    Object.entries(products).forEach(([id, p]) => {
+
+      const div = document.createElement("div");
+      div.className = "product";
+
+      div.innerHTML = `
+        <img src="${p.Image || ""}" alt="">
+        <div class="info">
+          <b>${p.name || "Unnamed"}</b>
+          <div>Rs. ${Number(p.Price || 0).toLocaleString()}</div>
+          <div class="muted">${p.description || ""}</div>
+          <small class="muted">ID: ${id}</small>
+        </div>
+
+        <div class="actions">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </div>
+      `;
+
+      div.querySelector(".edit").onclick =
+        () => edit(id, p);
+
+      div.querySelector(".delete").onclick =
+        () => removeProduct(id);
+
+      $("products").appendChild(div);
+    });
+
+  } catch (e) {
+    $("products").textContent = "Error: " + e.message;
+  }
+}
+
+function edit(id, p) {
+
+  editing = id;
+
+  $("id").value = id;
+  $("id").disabled = true;
+
+  $("name").value = p.name || "";
+  $("price").value = p.Price || "";
+  $("image").value = p.Image || "";
+  $("description").value = p.description || "";
+
+  $("title").textContent = "✏️ Edit Product";
+  $("cancel").style.display = "block";
+
+  scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function reset() {
+
+  editing = null;
+
+  $("id").disabled = false;
+
+  ["id", "name", "price", "image", "description"]
+    .forEach(x => $(x).value = "");
+
+  $("title").textContent = "➕ Add Product";
+  $("cancel").style.display = "none";
+
+  status("");
+}
+
+$("cancel").onclick = reset;
+
+$("save").onclick = async () => {
+
+  const id = $("id").value.trim();
+  const name = $("name").value.trim();
+  const price = Number($("price").value);
+  const image = $("image").value.trim();
+  const description = $("description").value.trim();
+
+  if (!id || !name || !price) {
+    status("Please enter ID, name and price.");
+    return;
+  }
+
+  try {
+
+    await set(ref(db, "products/" + id), {
+      name: name,
+      Price: price,
+      Image: image,
+      description: description
+    });
+
+    status("✅ Product saved successfully!");
+
+    reset();
+
+    await load();
+
+  } catch (e) {
+
+    status("❌ " + e.message);
+
+  }
+};
+
+async function removeProduct(id) {
+
+  if (!confirm("Delete " + id + "?")) return;
+
+  try {
+
+    await remove(ref(db, "products/" + id));
+
+    status("🗑️ Product deleted!");
+
+    await load();
+
+  } catch (e) {
+
+    status("❌ " + e.message);
+
+  }
+}
+
+load();
+</script>
+
   apiKey: "AIzaSyBVQH_n3bbKqSFiZeyzmPC8_cqAzqnOz0Y",
   authDomain: "abbas-store.firebaseapp.com",
   projectId: "abbas-store",
