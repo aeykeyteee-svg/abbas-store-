@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abbas Store</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>Abbas Store</h1>
+    <p>Mobile Accessories & Leather Items</p>
+    <button id="cartButton">
+  🛒 Cart (<span id="cartCount">0</span>)
+</button>
+  </header>
+  <div id="cartBox">
+  <h2>🛒 Your Cart</h2>
+
+  <div id="cartItems">
+    <p>Your cart is empty.</p>
+  </div>
+
+  <h3>Total: Rs. <span id="cartTotal">0</span></h3>
+</div>
+
+  <main>
+
+    <h2>Our Products</h2>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">👛</div>
+        <h3>Leather Wallet</h3>
+        <p>Rs. 1,500</p>
+        <button onclick="addToCart('Leather Wallet', 1500)">
+  Add to Cart
+</button>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🔌</div>
+        <h3>Type-C Cable</h3>
+        <p>Rs. 350</p>
+        <button onclick="addToCart('Type-C Cable', 350)">
+  Add to Cart
+</button>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🎧</div>
+        <h3>Ronin Handsfree</h3>
+        <p>Rs. 1,000</p>
+        <button onclick="addToCart('Ronin Handsfree', 1000)">
+  Add to Cart
+</button>
+      </div>
+
+    </div>
+<div class="order-section">
+  <h2>Order Now</h2>
+  <p>Order directly on WhatsApp</p>
+
+  <button onclick="orderOnWhatsApp()" class="whatsapp-button">
+  💬 Order on WhatsApp
+</button>
+</div>
+  </main>
+<script src="./script.js"></script>
+</body>
+</html>
