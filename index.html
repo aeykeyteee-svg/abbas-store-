@@ -3,71 +3,595 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abbas Store</title>
+
+  <meta name="description" content="Abbas Store - Mobile Accessories and Leather Items in Pakistan. Order online through WhatsApp.">
+
+  <meta name="robots" content="index, follow">
+
+  <title>Abbas Store | Mobile Accessories & Leather Items</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #050505;
+      color: #ffffff;
+    }
+
+    header {
+      background: linear-gradient(135deg, #050505, #181818);
+      text-align: center;
+      padding: 25px 15px 30px;
+      border-bottom: 2px solid #d4a017;
+    }
+
+    .store-logo {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 10px;
+      border-radius: 20px;
+    }
+
+    header h1 {
+      margin: 5px 0 8px;
+      font-size: 36px;
+      color: #f5b301;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 0 0 20px;
+      color: #cccccc;
+      font-size: 16px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    #cartButton {
+      background: linear-gradient(135deg, #f5b301, #d28b00);
+      color: #111111;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    #cartButton:hover {
+      transform: scale(1.03);
+    }
+
+    #cartBox {
+      background: #111111;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 650px;
+      border-radius: 16px;
+      border: 1px solid #333333;
+    }
+
+    #cartBox h2 {
+      margin-top: 0;
+      color: #f5b301;
+    }
+
+    #cartItems p {
+      padding: 9px 0;
+      margin: 0;
+      border-bottom: 1px solid #333333;
+    }
+
+    #cartTotal {
+      color: #f5b301;
+    }
+
+    main {
+      max-width: 650px;
+      margin: auto;
+      padding: 25px 15px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    section:first-child {
+      background: #111111;
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid #333333;
+    }
+
+    section:first-child h2,
+    main > section > h2 {
+      color: #f5b301;
+    }
+
+    section:first-child p {
+      line-height: 1.7;
+      color: #cccccc;
+    }
+
+    .products {
+      display: grid;
+      gap: 20px;
+    }
+
+    .product {
+      background: #111111;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid #333333;
+      box-shadow: 0 5px 20px rgba(245, 179, 1, 0.08);
+    }
+
+    .product-image {
+      font-size: 55px;
+      text-align: center;
+      padding: 22px;
+      background: #1b1b1b;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      margin: 5px 0 10px;
+      font-size: 22px;
+    }
+
+    .product p {
+      color: #f5b301;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .product button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #f5b301;
+      color: #111111;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .product button:active {
+      transform: scale(0.98);
+    }
+
+    .customer-form {
+      background: #111111;
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid #333333;
+      margin-bottom: 25px;
+    }
+
+    .customer-form h2 {
+      margin-top: 0;
+      color: #f5b301;
+    }
+
+    .customer-form input,
+    .customer-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      border: 1px solid #444444;
+      background: #1b1b1b;
+      color: #ffffff;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+
+    .customer-form input:focus,
+    .customer-form textarea:focus {
+      outline: none;
+      border-color: #f5b301;
+    }
+
+    .checkout-button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #f5b301;
+      color: #111111;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .order-section {
+      background: linear-gradient(135deg, #111111, #050505);
+      padding: 25px 18px;
+      border-radius: 16px;
+      text-align: center;
+      border: 1px solid #d4a017;
+    }
+
+    .order-section h2 {
+      margin-top: 0;
+      color: #f5b301;
+    }
+
+    .order-section p {
+      color: #cccccc;
+    }
+
+    .whatsapp-button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #25D366;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 20px;
+      background: #080808;
+      border-top: 1px solid #333333;
+      color: #999999;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      .store-logo {
+        width: 150px;
+        height: 150px;
+      }
+
+      header h1 {
+        font-size: 30px;
+      }
+
+      main {
+        padding: 20px 12px;
+      }
+
+      #cartBox {
+        margin: 15px 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <header>
+
+    <img
+      src="https://aeykeyteee-svg.github.io/abbas-store-/FEECC2FA-9A69-48FD-B192-15335C3FB00C.png"
+      alt="Abbas Store Logo"
+      class="store-logo"
+    >
+
     <h1>Abbas Store</h1>
+
     <p>Mobile Accessories & Leather Items</p>
+
     <button id="cartButton">
-  🛒 Cart (<span id="cartCount">0</span>)
-</button>
+      🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+
   </header>
+
   <div id="cartBox">
-  <h2>🛒 Your Cart</h2>
 
-  <div id="cartItems">
-    <p>Your cart is empty.</p>
+    <h2>🛒 Your Cart</h2>
+
+    <div id="cartItems">
+      <p>Your cart is empty.</p>
+    </div>
+
+    <h3>
+      Total: Rs. <span id="cartTotal">0</span>
+    </h3>
+
   </div>
-
-  <h3>Total: Rs. <span id="cartTotal">0</span></h3>
-</div>
 
   <main>
 
-    <h2>Our Products</h2>
+    <section>
 
-    <div class="products">
+      <h2>Welcome to Abbas Store</h2>
 
-      <div class="product">
-        <div class="product-image">👛</div>
-        <h3>Leather Wallet</h3>
-        <p>Rs. 1,500</p>
-        <button onclick="addToCart('Leather Wallet', 1500)">
-  Add to Cart
-</button>
+      <p>
+        Welcome to Abbas Store. We offer mobile accessories,
+        leather wallets and useful everyday products at affordable
+        prices. Order easily through WhatsApp.
+      </p>
+
+    </section>
+
+    <section>
+
+      <h2>Our Products</h2>
+
+      <div class="products">
+
+        <div class="product">
+
+          <div class="product-image">👛</div>
+
+          <h3>Leather Wallet</h3>
+
+          <p>Rs. 1,500</p>
+
+          <button onclick="addToCart('Leather Wallet', 1500)">
+            Add to Cart
+          </button>
+
+        </div>
+
+        <div class="product">
+
+          <div class="product-image">🔌</div>
+
+          <h3>Type-C Cable</h3>
+
+          <p>Rs. 350</p>
+
+          <button onclick="addToCart('Type-C Cable', 350)">
+            Add to Cart
+          </button>
+
+        </div>
+
+        <div class="product">
+
+          <div class="product-image">🎧</div>
+
+          <h3>Ronin Handsfree</h3>
+
+          <p>Rs. 1,000</p>
+
+          <button onclick="addToCart('Ronin Handsfree', 1000)">
+            Add to Cart
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="product">
-        <div class="product-image">🔌</div>
-        <h3>Type-C Cable</h3>
-        <p>Rs. 350</p>
-        <button onclick="addToCart('Type-C Cable', 350)">
-  Add to Cart
-</button>
-      </div>
+    </section>
 
-      <div class="product">
-        <div class="product-image">🎧</div>
-        <h3>Ronin Handsfree</h3>
-        <p>Rs. 1,000</p>
-        <button onclick="addToCart('Ronin Handsfree', 1000)">
-  Add to Cart
-</button>
-      </div>
+    <div class="customer-form">
+
+      <h2>📦 Delivery Details</h2>
+
+      <input
+        type="text"
+        id="customerName"
+        placeholder="Your Name"
+      >
+
+      <input
+        type="tel"
+        id="customerPhone"
+        placeholder="Phone Number"
+      >
+
+      <textarea
+        id="customerAddress"
+        placeholder="Delivery Address"
+        rows="4"
+      ></textarea>
+
+      <button
+        onclick="orderOnWhatsApp()"
+        class="checkout-button"
+      >
+        Confirm Order
+      </button>
 
     </div>
-<div class="order-section">
-  <h2>Order Now</h2>
-  <p>Order directly on WhatsApp</p>
 
-  <button onclick="orderOnWhatsApp()" class="whatsapp-button">
-  💬 Order on WhatsApp
-</button>
-</div>
+    <div class="order-section">
+
+      <h2>Order Now</h2>
+
+      <p>Order directly on WhatsApp</p>
+
+      <button
+        onclick="orderOnWhatsApp()"
+        class="whatsapp-button"
+      >
+        💬 Order on WhatsApp
+      </button>
+
+    </div>
+
   </main>
-<script src="./script.js"></script>
+
+  <footer>
+    © 2026 Abbas Store. All Rights Reserved.
+  </footer>
+
+  <script>
+
+    let cart = [];
+
+    function addToCart(name, price) {
+
+      cart.push({
+        name: name,
+        price: price
+      });
+
+      updateCart();
+
+      alert("Added to cart: " + name);
+    }
+
+    function updateCart() {
+
+      const cartCount =
+        document.getElementById("cartCount");
+
+      const cartItems =
+        document.getElementById("cartItems");
+
+      const cartTotal =
+        document.getElementById("cartTotal");
+
+      cartCount.textContent = cart.length;
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML =
+          "<p>Your cart is empty.</p>";
+
+        cartTotal.textContent = "0";
+
+        return;
+      }
+
+      let total = 0;
+
+      let html = "";
+
+      cart.forEach(function(item) {
+
+        html +=
+          "<p>" +
+          item.name +
+          " - Rs. " +
+          item.price +
+          "</p>";
+
+        total += item.price;
+
+      });
+
+      cartItems.innerHTML = html;
+
+      cartTotal.textContent = total;
+    }
+
+    function orderOnWhatsApp() {
+
+      if (cart.length === 0) {
+
+        alert("Please add a product to cart first.");
+
+        return;
+      }
+
+      const name =
+        document
+          .getElementById("customerName")
+          .value
+          .trim();
+
+      const phone =
+        document
+          .getElementById("customerPhone")
+          .value
+          .trim();
+
+      const address =
+        document
+          .getElementById("customerAddress")
+          .value
+          .trim();
+
+      if (
+        name === "" ||
+        phone === "" ||
+        address === ""
+      ) {
+
+        alert(
+          "Please fill in all delivery details."
+        );
+
+        return;
+      }
+
+      let message =
+        "Assalam-o-Alaikum, mujhe order karna hai:%0A%0A";
+
+      message +=
+        "Name: " +
+        name +
+        "%0A";
+
+      message +=
+        "Phone: " +
+        phone +
+        "%0A";
+
+      message +=
+        "Address: " +
+        address +
+        "%0A%0A";
+
+      let total = 0;
+
+      cart.forEach(function(item) {
+
+        message +=
+          item.name +
+          " - Rs. " +
+          item.price +
+          "%0A";
+
+        total += item.price;
+
+      });
+
+      message +=
+        "%0ATotal: Rs. " +
+        total;
+
+      message +=
+        "%0A%0AThank you!";
+
+      const whatsappURL =
+        "https://wa.me/923183363084?text=" +
+        message;
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+    }
+
+    document
+      .getElementById("cartButton")
+      .addEventListener(
+        "click",
+        function() {
+
+          document
+            .getElementById("cartBox")
+            .scrollIntoView({
+              behavior: "smooth"
+            });
+
+        }
+      );
+
+  </script>
+
 </body>
 </html>
