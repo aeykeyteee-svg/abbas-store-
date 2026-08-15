@@ -1,60 +1,200 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Abbas Store Admin Dashboard</title>
+
 <style>
-body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}header{padding:22px;text-align:center;background:#111;border-bottom:2px solid #f5b301}h1,h2{color:#f5b301}main{max-width:800px;margin:auto;padding:18px}.card{background:#111;border:1px solid #333;border-radius:16px;padding:18px;margin-bottom:18px}input,textarea{width:100%;padding:13px;margin:7px 0 12px;background:#1b1b1b;color:#fff;border:1px solid #444;border-radius:9px;font-size:16px;box-sizing:border-box}button{padding:12px 16px;border:0;border-radius:9px;font-weight:bold}.save{background:#f5b301;width:100%}.edit{background:#333;color:#fff}.delete{background:#d33;color:#fff}.product{border:1px solid #333;border-radius:12px;padding:12px;margin:10px 0;display:flex;gap:12px;align-items:center}.product img{width:80px;height:80px;object-fit:cover;border-radius:8px;background:#222}.info{flex:1}.muted{color:#aaa}.actions{display:flex;gap:6px;flex-wrap:wrap}
-</style></head><body>
-<header><h1>🛍️ Abbas Store</h1>Admin Dashboard</header>
+body{
+  margin:0;
+  background:#050505;
+  color:#fff;
+  font-family:Arial,sans-serif
+}
+header{
+  padding:22px;
+  text-align:center;
+  background:#111;
+  border-bottom:2px solid #f5b301
+}
+h1,h2{color:#f5b301}
+main{
+  max-width:800px;
+  margin:auto;
+  padding:18px
+}
+.card{
+  background:#111;
+  border:1px solid #333;
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:18px
+}
+input,textarea{
+  width:100%;
+  padding:13px;
+  margin:7px 0 12px;
+  background:#1b1b1b;
+  color:#fff;
+  border:1px solid #444;
+  border-radius:9px;
+  font-size:16px;
+  box-sizing:border-box
+}
+button{
+  padding:12px 16px;
+  border:0;
+  border-radius:9px;
+  font-weight:bold
+}
+.save{
+  background:#f5b301;
+  width:100%
+}
+.edit{
+  background:#333;
+  color:#fff
+}
+.delete{
+  background:#d33;
+  color:#fff
+}
+.product{
+  border:1px solid #333;
+  border-radius:12px;
+  padding:12px;
+  margin:10px 0;
+  display:flex;
+  gap:12px;
+  align-items:center
+}
+.product img{
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:8px;
+  background:#222
+}
+.info{flex:1}
+.muted{color:#aaa}
+.actions{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🛍️ Abbas Store</h1>
+Admin Dashboard
+</header>
+
 <main>
-<div class="card"><h2 id="title">➕ Add Product</h2>
-<input id="id" placeholder="Document ID e.g. leather-wallet">
+
+<div class="card">
+
+<h2 id="title">➕ Add Product</h2>
+
+<input id="id" placeholder="Product ID e.g. leather-wallet">
+
 <input id="name" placeholder="Product Name">
+
 <input id="price" type="number" placeholder="Price (Rs.)">
+
 <input id="image" placeholder="Image URL">
+
 <textarea id="description" rows="3" placeholder="Product description"></textarea>
+
 <button class="save" id="save">Save Product</button>
-<button class="edit" id="cancel" style="display:none;width:100%;margin-top:8px">Cancel Edit</button>
-<p id="status" class="muted"></p></div>
-<div class="card"><h2>📦 Products</h2><div id="products">Loading...</div></div>
+
+<button class="edit" id="cancel"
+style="display:none;width:100%;margin-top:8px">
+Cancel Edit
+</button>
+
+<p id="status" class="muted"></p>
+
+</div>
+
+<div class="card">
+
+<h2>📦 Products</h2>
+
+<div id="products">Loading...</div>
+
+</div>
+
 </main>
+
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
 import {
   getDatabase,
   ref,
   get,
   set,
   remove
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+
 
 const firebaseConfig = {
+
   apiKey: "AIzaSyBVQH_n3bbKqSFiZeyzmPC8_cqAzqnOz0Y",
+
   authDomain: "abbas-store.firebaseapp.com",
+
+  databaseURL: "https://abbas-store-default-rtdb.firebaseio.com",
+
   projectId: "abbas-store",
+
   storageBucket: "abbas-store.firebasestorage.app",
+
   messagingSenderId: "750637556641",
+
   appId: "1:750637556641:web:b78ea90d4ee55fe0d521e0",
+
   measurementId: "G-7SL6JRPRYT"
+
 };
 
+
 const app = initializeApp(firebaseConfig);
+
 const db = getDatabase(app);
 
 let editing = null;
 
-const $ = id => document.getElementById(id);
-const status = text => $("status").textContent = text;
 
-async function load() {
+const $ = id => document.getElementById(id);
+
+const status = text => {
+  $("status").textContent = text;
+};
+
+
+async function load(){
+
   $("products").textContent = "Loading...";
 
-  try {
-    const snapshot = await get(ref(db, "products"));
+  try{
 
-    if (!snapshot.exists()) {
+    const snapshot = await get(
+      ref(db,"products")
+    );
+
+    if(!snapshot.exists()){
+
       $("products").innerHTML =
         '<p class="muted">No products yet.</p>';
+
       return;
     }
 
@@ -62,166 +202,230 @@ async function load() {
 
     const products = snapshot.val();
 
-    Object.entries(products).forEach(([id, p]) => {
+    Object.entries(products).forEach(([id,p]) => {
 
       const div = document.createElement("div");
+
       div.className = "product";
 
       div.innerHTML = `
         <img src="${p.Image || ""}" alt="">
+
         <div class="info">
+
           <b>${p.name || "Unnamed"}</b>
-          <div>Rs. ${Number(p.Price || 0).toLocaleString()}</div>
-          <div class="muted">${p.description || ""}</div>
-          <small class="muted">ID: ${id}</small>
+
+          <div>
+            Rs. ${Number(p.Price || 0).toLocaleString()}
+          </div>
+
+          <div class="muted">
+            ${p.description || ""}
+          </div>
+
+          <small class="muted">
+            ID: ${id}
+          </small>
+
         </div>
 
         <div class="actions">
-          <button class="edit">Edit</button>
-          <button class="delete">Delete</button>
+
+          <button class="edit">
+            Edit
+          </button>
+
+          <button class="delete">
+            Delete
+          </button>
+
         </div>
       `;
 
+
       div.querySelector(".edit").onclick =
-        () => edit(id, p);
+        () => edit(id,p);
+
 
       div.querySelector(".delete").onclick =
         () => removeProduct(id);
 
+
       $("products").appendChild(div);
+
     });
 
-  } catch (e) {
-    $("products").textContent = "Error: " + e.message;
+  }catch(e){
+
+    $("products").textContent =
+      "Error: " + e.message;
+
   }
+
 }
 
-function edit(id, p) {
+
+function edit(id,p){
 
   editing = id;
 
   $("id").value = id;
+
   $("id").disabled = true;
 
   $("name").value = p.name || "";
-  $("price").value = p.Price || "";
-  $("image").value = p.Image || "";
-  $("description").value = p.description || "";
 
-  $("title").textContent = "✏️ Edit Product";
-  $("cancel").style.display = "block";
+  $("price").value = p.Price || "";
+
+  $("image").value = p.Image || "";
+
+  $("description").value =
+    p.description || "";
+
+  $("title").textContent =
+    "✏️ Edit Product";
+
+  $("cancel").style.display =
+    "block";
 
   scrollTo({
-    top: 0,
-    behavior: "smooth"
+    top:0,
+    behavior:"smooth"
   });
+
 }
 
-function reset() {
+
+function reset(){
 
   editing = null;
 
   $("id").disabled = false;
 
-  ["id", "name", "price", "image", "description"]
-    .forEach(x => $(x).value = "");
+  [
+    "id",
+    "name",
+    "price",
+    "image",
+    "description"
+  ].forEach(x => {
+    $(x).value = "";
+  });
 
-  $("title").textContent = "➕ Add Product";
-  $("cancel").style.display = "none";
+  $("title").textContent =
+    "➕ Add Product";
+
+  $("cancel").style.display =
+    "none";
 
   status("");
+
 }
+
 
 $("cancel").onclick = reset;
 
+
 $("save").onclick = async () => {
 
-  const id = $("id").value.trim();
-  const name = $("name").value.trim();
-  const price = Number($("price").value);
-  const image = $("image").value.trim();
-  const description = $("description").value.trim();
+  const id =
+    $("id").value.trim();
 
-  if (!id || !name || !price) {
-    status("Please enter ID, name and price.");
+  const name =
+    $("name").value.trim();
+
+  const price =
+    Number($("price").value);
+
+  const image =
+    $("image").value.trim();
+
+  const description =
+    $("description").value.trim();
+
+
+  if(!id || !name || !price){
+
+    status(
+      "Please enter ID, name and price."
+    );
+
     return;
   }
 
-  try {
 
-    await set(ref(db, "products/" + id), {
-      name: name,
-      Price: price,
-      Image: image,
-      description: description
-    });
+  try{
 
-    status("✅ Product saved successfully!");
+    await set(
+      ref(db,"products/" + id),
+      {
+        name:name,
+        Price:price,
+        Image:image,
+        description:description
+      }
+    );
+
+
+    status(
+      "✅ Product saved successfully!"
+    );
 
     reset();
 
     await load();
 
-  } catch (e) {
 
-    status("❌ " + e.message);
+  }catch(e){
+
+    status(
+      "❌ " + e.message
+    );
 
   }
+
 };
 
-async function removeProduct(id) {
 
-  if (!confirm("Delete " + id + "?")) return;
+async function removeProduct(id){
 
-  try {
+  if(
+    !confirm(
+      "Delete " + id + "?"
+    )
+  ){
+    return;
+  }
 
-    await remove(ref(db, "products/" + id));
 
-    status("🗑️ Product deleted!");
+  try{
+
+    await remove(
+      ref(db,"products/" + id)
+    );
+
+
+    status(
+      "🗑️ Product deleted!"
+    );
 
     await load();
 
-  } catch (e) {
 
-    status("❌ " + e.message);
+  }catch(e){
+
+    status(
+      "❌ " + e.message
+    );
 
   }
+
 }
 
+
 load();
+
 </script>
 
-  apiKey: "AIzaSyBVQH_n3bbKqSFiZeyzmPC8_cqAzqnOz0Y",
-  authDomain: "abbas-store.firebaseapp.com",
-  projectId: "abbas-store",
-  storageBucket: "abbas-store.firebasestorage.app",
-  messagingSenderId: "750637556641",
-  appId: "1:750637556641:web:b78ea90d4ee55fe0d521e0",
-  measurementId: "G-7SL6JRPRYT"
-};
-const db=getFirestore(initializeApp(firebaseConfig));let editing=null;
-const $=x=>document.getElementById(x), status=x=>$("status").textContent=x;
-async function load(){
-  $("products").textContent="Loading...";
-  try{
-    const s=await getDocs(collection(db,"products"));
-    if(s.empty){$("products").innerHTML='<p class="muted">No products yet.</p>';return}
-    $("products").innerHTML="";
-    s.forEach(d=>{
-      const p=d.data(), div=document.createElement("div");div.className="product";
-      div.innerHTML='<img src="'+(p.Image||"")+'" alt=""><div class="info"><b>'+(p.name||"Unnamed")+'</b><div>Rs. '+Number(p.Price||0).toLocaleString()+'</div><div class="muted">'+(p.description||"")+'</div><small class="muted">ID: '+d.id+'</small></div><div class="actions"><button class="edit">Edit</button><button class="delete">Delete</button></div>';
-      div.querySelector(".edit").onclick=()=>edit(d.id,p);div.querySelector(".delete").onclick=()=>remove(d.id);$("products").appendChild(div);
-    });
-  }catch(e){$("products").textContent="Error: "+e.message}
-}
-function edit(id,p){editing=id;$("id").value=id;$("id").disabled=true;$("name").value=p.name||"";$("price").value=p.Price||"";$("image").value=p.Image||"";$("description").value=p.description||"";$("title").textContent="✏️ Edit Product";$("cancel").style.display="block";scrollTo({top:0,behavior:"smooth"})}
-function reset(){editing=null;$("id").disabled=false;["id","name","price","image","description"].forEach(x=>$(x).value="");$("title").textContent="➕ Add Product";$("cancel").style.display="none";status("")}
-$("cancel").onclick=reset;
-$("save").onclick=async()=>{
-  const id=$("id").value.trim(),name=$("name").value.trim(),price=Number($("price").value),image=$("image").value.trim(),description=$("description").value.trim();
-  if(!id||!name||!price){status("Please enter ID, name and price.");return}
-  try{await setDoc(doc(db,"products",id),{name,Price:price,Image:image,description});status("✅ Saved");reset();await load()}catch(e){status("❌ "+e.message)}
-};
-async function remove(id){if(!confirm("Delete "+id+"?"))return;try{await deleteDoc(doc(db,"products",id));status("🗑️ Deleted");await load()}catch(e){status("❌ "+e.message)}}
-load();
-</script></body></html>
+</body>
+</html>
