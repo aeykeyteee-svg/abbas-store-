@@ -7,59 +7,194 @@
 <meta name="description" content="Shop mobile accessories, leather wallets and everyday products from Abbas Store in Pakistan. Order easily on WhatsApp.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://aeykeyteee-svg.github.io/abbas-store-/">
+
 <style>
 :root{--gold:#f5b301;--dark:#111827;--green:#198754;--light:#f7f7f8}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:#151515}
-header{background:linear-gradient(135deg,#111827,#202938);color:white;padding:18px 16px;position:sticky;top:0;z-index:20;box-shadow:0 3px 15px #0002}
-.nav{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-size:25px;font-weight:800}.logo span{color:var(--gold)}
-.cart-btn{border:0;background:var(--gold);color:#111;padding:11px 15px;border-radius:12px;font-weight:800;cursor:pointer}
-.hero{background:white;text-align:center;padding:45px 18px 35px}
-.hero h1{font-size:42px;margin:0 0 10px}.hero h1 span{color:var(--gold)}
-.hero p{font-size:18px;color:#555;margin:0 auto 22px;max-width:650px}
-.hero a{display:inline-block;text-decoration:none;background:#111827;color:#fff;padding:13px 22px;border-radius:12px;font-weight:700}
-.wrap{max-width:1100px;margin:auto;padding:28px 16px 60px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--light);color:#151515}
+
+header{
+  background:linear-gradient(135deg,#111827,#202938);
+  color:white;padding:18px 16px;position:sticky;top:0;z-index:20;
+  box-shadow:0 3px 15px #0002
+}
+
+.nav{
+  max-width:1100px;margin:auto;display:flex;align-items:center;
+  justify-content:space-between;gap:12px
+}
+
+.logo{font-size:25px;font-weight:800}
+.logo span{color:var(--gold)}
+
+.cart-btn{
+  border:0;background:var(--gold);color:#111;padding:11px 15px;
+  border-radius:12px;font-weight:800;cursor:pointer
+}
+
+.hero{
+  background:white;text-align:center;padding:45px 18px 35px
+}
+
+.hero h1{font-size:42px;margin:0 0 10px}
+.hero h1 span{color:var(--gold)}
+
+.hero p{
+  font-size:18px;color:#555;margin:0 auto 22px;max-width:650px
+}
+
+.hero a{
+  display:inline-block;text-decoration:none;background:#111827;color:#fff;
+  padding:13px 22px;border-radius:12px;font-weight:700
+}
+
+.wrap{
+  max-width:1100px;margin:auto;padding:28px 16px 60px
+}
+
 .section-title{text-align:center;margin:5px 0 25px;font-size:28px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 7px 25px #00000012;border:1px solid #eee;display:flex;flex-direction:column}
-.photo{width:100%;height:300px;object-fit:cover;background:#eee}
-.card:nth-child(2) .photo,.card:nth-child(3) .photo{object-fit:contain;padding:8px}
-.info{padding:17px}.info h3{margin:0 0 8px;font-size:21px}.price{font-size:24px;font-weight:800;color:var(--green);margin-bottom:14px}
-.buy{width:100%;border:0;background:#111827;color:#fff;padding:12px;border-radius:11px;font-weight:800;cursor:pointer}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px
+}
+
+.card{
+  background:#fff;border-radius:18px;overflow:hidden;
+  box-shadow:0 7px 25px #00000012;border:1px solid #eee;
+  display:flex;flex-direction:column
+}
+
+.photo{
+  width:100%;height:300px;object-fit:cover;background:#eee
+}
+
+.card:nth-child(2) .photo,
+.card:nth-child(3) .photo,
+.card:nth-child(4) .photo{
+  object-fit:contain;padding:8px
+}
+
+.info{padding:17px}
+.info h3{margin:0 0 8px;font-size:21px}
+
+.price{
+  font-size:24px;font-weight:800;color:var(--green);
+  margin-bottom:14px
+}
+
+.buy{
+  width:100%;border:0;background:#111827;color:#fff;
+  padding:12px;border-radius:11px;font-weight:800;cursor:pointer
+}
+
 .buy:hover{background:#273244}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:35px 0}
-.feature{background:#fff;border-radius:15px;padding:20px;text-align:center;box-shadow:0 5px 18px #0000000d}
-.feature b{display:block;margin:8px 0}.feature div{color:#666;font-size:14px}
-footer{background:#111827;color:#fff;text-align:center;padding:28px 16px}
+
+.features{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:15px;margin:35px 0
+}
+
+.feature{
+  background:#fff;border-radius:15px;padding:20px;text-align:center;
+  box-shadow:0 5px 18px #0000000d
+}
+
+.feature b{display:block;margin:8px 0}
+.feature div{color:#666;font-size:14px}
+
+footer{
+  background:#111827;color:#fff;text-align:center;padding:28px 16px
+}
+
 footer strong{color:var(--gold)}
-.modal{display:none;position:fixed;inset:0;background:#0008;z-index:50;padding:18px}
-.modal.show{display:flex;align-items:flex-end;justify-content:center}
-.box{background:#fff;width:min(560px,100%);max-height:90vh;overflow:auto;border-radius:20px 20px 0 0;padding:22px}
-.box-head{display:flex;justify-content:space-between;align-items:center}.close{border:0;background:#eee;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}
-.cart-item{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eee;padding:12px 0}.qty button{border:1px solid #ddd;background:white;border-radius:7px;padding:3px 9px;cursor:pointer}
-.total{font-size:22px;font-weight:800;margin:18px 0}.wa{display:block;text-align:center;text-decoration:none;background:#25D366;color:white;padding:14px;border-radius:12px;font-weight:800}
+
+.modal{
+  display:none;position:fixed;inset:0;background:#0008;
+  z-index:50;padding:18px
+}
+
+.modal.show{
+  display:flex;align-items:flex-end;justify-content:center
+}
+
+.box{
+  background:#fff;width:min(560px,100%);max-height:90vh;
+  overflow:auto;border-radius:20px 20px 0 0;padding:22px
+}
+
+.box-head{
+  display:flex;justify-content:space-between;align-items:center
+}
+
+.close{
+  border:0;background:#eee;border-radius:50%;width:36px;
+  height:36px;font-size:20px;cursor:pointer
+}
+
+.cart-item{
+  display:flex;justify-content:space-between;gap:10px;
+  border-bottom:1px solid #eee;padding:12px 0
+}
+
+.qty button{
+  border:1px solid #ddd;background:white;border-radius:7px;
+  padding:3px 9px;cursor:pointer
+}
+
+.total{font-size:22px;font-weight:800;margin:18px 0}
+
+.wa{
+  display:block;text-align:center;text-decoration:none;
+  background:#25D366;color:white;padding:14px;border-radius:12px;
+  font-weight:800
+}
+
 .empty{text-align:center;color:#777;padding:25px}
-@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.features{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
-@media(max-width:520px){.grid,.features{grid-template-columns:1fr}.photo{height:320px}.hero h1{font-size:31px}}
+
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr 1fr}
+  .features{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:34px}
+}
+
+@media(max-width:520px){
+  .grid,.features{grid-template-columns:1fr}
+  .photo{height:320px}
+  .hero h1{font-size:31px}
+}
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="nav">
     <div class="logo">Abbas <span>Store</span></div>
-    <button class="cart-btn" onclick="openCart()">🛒 Cart (<span id="count">0</span>)</button>
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart (<span id="count">0</span>)
+    </button>
   </div>
 </header>
 
 <section class="hero">
   <h1>Welcome to <span>Abbas Store</span></h1>
-  <p>Quality mobile accessories, leather wallets and everyday products — with easy WhatsApp ordering in Pakistan.</p>
+  <p>
+    Quality mobile accessories, leather wallets and everyday products —
+    with easy WhatsApp ordering in Pakistan.
+  </p>
   <a href="#products">Shop Now</a>
 </section>
 
 <main class="wrap" id="products">
+
   <h2 class="section-title">Our Products</h2>
+
   <div class="grid">
+
+    <!-- Product 1 -->
     <article class="card">
       <img class="photo" src="wallet.png" alt="Brown Leather Wallet">
       <div class="info">
@@ -68,6 +203,8 @@ footer strong{color:var(--gold)}
         <button class="buy" onclick="add(1)">Add to Cart</button>
       </div>
     </article>
+
+    <!-- Product 2 -->
     <article class="card">
       <img class="photo" src="ronin-handsfree.jpeg" alt="Ronin R-29 Handsfree">
       <div class="info">
@@ -76,6 +213,8 @@ footer strong{color:var(--gold)}
         <button class="buy" onclick="add(2)">Add to Cart</button>
       </div>
     </article>
+
+    <!-- Product 3 -->
     <article class="card">
       <img class="photo" src="type-c-cable.jpeg" alt="Type-C Cable">
       <div class="info">
@@ -84,54 +223,182 @@ footer strong{color:var(--gold)}
         <button class="buy" onclick="add(3)">Add to Cart</button>
       </div>
     </article>
+
+    <!-- NEW PRODUCT -->
+    <article class="card">
+      <img class="photo"
+           src="iphone-xs-max-cover-front.jpeg"
+           alt="iPhone XS Max Leather Flip Cover">
+      <div class="info">
+        <h3>iPhone XS Max Leather Flip Cover</h3>
+        <div class="price">Rs. 1,299</div>
+        <button class="buy" onclick="add(4)">Add to Cart</button>
+      </div>
+    </article>
+
   </div>
 
   <div class="features">
-    <div class="feature">🚚<b>Pakistan Delivery</b><div>Order from anywhere in Pakistan.</div></div>
-    <div class="feature">💬<b>WhatsApp Ordering</b><div>Send your cart directly on WhatsApp.</div></div>
-    <div class="feature">📱<b>Mobile Friendly</b><div>Designed for iPhone and Android.</div></div>
+    <div class="feature">
+      🚚
+      <b>Pakistan Delivery</b>
+      <div>Order from anywhere in Pakistan.</div>
+    </div>
+
+    <div class="feature">
+      💬
+      <b>WhatsApp Ordering</b>
+      <div>Send your cart directly on WhatsApp.</div>
+    </div>
+
+    <div class="feature">
+      📱
+      <b>Mobile Friendly</b>
+      <div>Designed for iPhone and Android.</div>
+    </div>
   </div>
+
 </main>
 
-<footer><strong>Abbas Store</strong><br><small>Mobile Accessories • Wallets • Everyday Products</small></footer>
+<footer>
+  <strong>Abbas Store</strong><br>
+  <small>Mobile Accessories • Wallets • Everyday Products</small>
+</footer>
 
 <div class="modal" id="modal" onclick="if(event.target===this)closeCart()">
+
   <div class="box">
-    <div class="box-head"><h2>Your Cart</h2><button class="close" onclick="closeCart()">×</button></div>
+
+    <div class="box-head">
+      <h2>Your Cart</h2>
+      <button class="close" onclick="closeCart()">×</button>
+    </div>
+
     <div id="items"></div>
-    <div class="total">Total: Rs. <span id="total">0</span></div>
-    <a id="wa" class="wa" target="_blank" rel="noopener">💬 Order on WhatsApp</a>
+
+    <div class="total">
+      Total: Rs. <span id="total">0</span>
+    </div>
+
+    <a id="wa" class="wa" target="_blank" rel="noopener">
+      💬 Order on WhatsApp
+    </a>
+
   </div>
 </div>
 
 <script>
+
 const products={
-  1:{name:"Leather Wallet",price:1500},
-  2:{name:"Ronin R-29 Handsfree",price:1000},
-  3:{name:"Type-C Cable",price:350}
+
+  1:{
+    name:"Leather Wallet",
+    price:1500
+  },
+
+  2:{
+    name:"Ronin R-29 Handsfree",
+    price:1000
+  },
+
+  3:{
+    name:"Type-C Cable",
+    price:350
+  },
+
+  4:{
+    name:"iPhone XS Max Leather Flip Cover",
+    price:1299
+  }
+
 };
+
 let cart=JSON.parse(localStorage.getItem("abbasCart")||"{}");
 
-function save(){localStorage.setItem("abbasCart",JSON.stringify(cart));render()}
-function add(id){cart[id]=(cart[id]||0)+1;save();openCart()}
-function change(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save()}
-function render(){
-  let count=0,total=0,html="";
-  for(const id in cart){
-    const p=products[id],q=cart[id];count+=q;total+=p.price*q;
-    html+=`<div class="cart-item"><div><b>${p.name}</b><br>Rs. ${p.price.toLocaleString()}</div><div class="qty"><button onclick="change(${id},-1)">−</button> ${q} <button onclick="change(${id},1)">+</button></div></div>`;
-  }
-  document.getElementById("count").textContent=count;
-  document.getElementById("total").textContent=total.toLocaleString();
-  document.getElementById("items").innerHTML=html||'<div class="empty">Your cart is empty.</div>';
-  let msg="Assalam-o-Alaikum, I want to order from Abbas Store:%0A%0A";
-  for(const id in cart) msg+=`${products[id].name} x ${cart[id]} = Rs. ${(products[id].price*cart[id]).toLocaleString()}%0A`;
-  msg+=`%0ATotal: Rs. ${total.toLocaleString()}%0A%0AName:%0AAddress:%0APhone:`;
-  document.getElementById("wa").href="https://wa.me/923183363084?text="+msg;
+function save(){
+  localStorage.setItem("abbasCart",JSON.stringify(cart));
+  render()
 }
-function openCart(){document.getElementById("modal").classList.add("show");render()}
-function closeCart(){document.getElementById("modal").classList.remove("show")}
+
+function add(id){
+  cart[id]=(cart[id]||0)+1;
+  save();
+  openCart()
+}
+
+function change(id,d){
+  cart[id]=(cart[id]||0)+d;
+
+  if(cart[id]<=0)
+    delete cart[id];
+
+  save()
+}
+
+function render(){
+
+  let count=0,total=0,html="";
+
+  for(const id in cart){
+
+    const p=products[id],
+          q=cart[id];
+
+    count+=q;
+    total+=p.price*q;
+
+    html+=`
+      <div class="cart-item">
+        <div>
+          <b>${p.name}</b><br>
+          Rs. ${p.price.toLocaleString()}
+        </div>
+
+        <div class="qty">
+          <button onclick="change(${id},-1)">−</button>
+          ${q}
+          <button onclick="change(${id},1)">+</button>
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById("count").textContent=count;
+
+  document.getElementById("total").textContent=
+    total.toLocaleString();
+
+  document.getElementById("items").innerHTML=
+    html || '<div class="empty">Your cart is empty.</div>';
+
+  let msg=
+    "Assalam-o-Alaikum, I want to order from Abbas Store:%0A%0A";
+
+  for(const id in cart){
+
+    msg+=
+      `${products[id].name} x ${cart[id]} = Rs. ${(products[id].price*cart[id]).toLocaleString()}%0A`;
+  }
+
+  msg+=
+    `%0ATotal: Rs. ${total.toLocaleString()}%0A%0AName:%0AAddress:%0APhone:`;
+
+  document.getElementById("wa").href=
+    "https://wa.me/923183363084?text="+msg;
+}
+
+function openCart(){
+  document.getElementById("modal").classList.add("show");
+  render()
+}
+
+function closeCart(){
+  document.getElementById("modal").classList.remove("show")
+}
+
 render();
+
 </script>
+
 </body>
 </html>
