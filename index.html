@@ -3,831 +3,865 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Veyro Store - Mobile Accessories, Leather Wallets & Everyday Products</title>
-
-<meta name="description" content="Shop mobile accessories, leather wallets and everyday products from Veyro Store in Pakistan. Order easily on WhatsApp.">
-
+<title>Veyro Store - Mobile Accessories & Everyday Products</title>
+<meta name="description" content="Veyro Store - Shop mobile covers, handsfree, cables, wallets and everyday products in Pakistan. Order easily on WhatsApp.">
 <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://aeykeyteee-svg.github.io/abbas-store-/">
 
 <style>
 :root{
+  --blue:#174fb3;
+  --blue-dark:#123e91;
   --gold:#f5b301;
-  --dark:#111827;
-  --green:#198754;
-  --light:#f7f7f8;
+  --green:#20cf68;
+  --text:#292929;
+  --muted:#777;
+  --line:#e7e7e7;
+  --bg:#fff;
+  --soft:#f7f8fa;
 }
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--light);
-  color:#151515;
+  background:var(--bg);
+  color:var(--text);
+  padding-bottom:76px;
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+/* TOP BRAND */
+.top-brand{
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+.brand{
+  font-size:34px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+.brand .v{color:#222}
+.brand .s{color:var(--blue)}
+.brand small{
+  display:block;
+  text-align:center;
+  font-size:10px;
+  letter-spacing:2px;
+  color:#999;
+  font-weight:500;
+  margin-top:-3px;
 }
 
-header{
-  background:linear-gradient(135deg,#111827,#202938);
-  color:white;
-  padding:18px 16px;
+/* BLUE SEARCH BAR */
+.search-bar{
   position:sticky;
   top:0;
-  z-index:20;
-  box-shadow:0 3px 15px #0002;
+  z-index:30;
+  background:var(--blue);
+  padding:16px 28px;
+  box-shadow:0 3px 12px #0002;
 }
-
-.nav{
+.search-inner{
   max-width:1100px;
   margin:auto;
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:12px;
+  gap:22px;
 }
-
-.logo{
-  font-size:25px;
-  font-weight:800;
-}
-
-.logo span{
-  color:var(--gold);
-}
-
-.cart-btn{
+.menu-btn,.account-btn{
+  width:48px;
+  height:48px;
   border:0;
-  background:var(--gold);
-  color:#111;
-  padding:11px 15px;
-  border-radius:12px;
-  font-weight:800;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  flex:none;
+}
+.menu-icon{
+  width:30px;
+  margin:auto;
+}
+.menu-icon span{
+  display:block;
+  height:3px;
+  background:#fff;
+  margin:6px 0;
+  border-radius:3px;
+}
+.search{
+  flex:1;
+  height:52px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  border-radius:0;
+}
+.search input{
+  border:0;
+  outline:0;
+  flex:1;
+  min-width:0;
+  font-size:18px;
+  padding:0 18px;
+  color:#333;
+}
+.search input::placeholder{color:#888}
+.search button{
+  border:0;
+  background:transparent;
+  font-size:28px;
+  padding:0 18px;
+  color:#666;
   cursor:pointer;
 }
+.account-icon{
+  width:30px;
+  height:30px;
+  margin:auto;
+  position:relative;
+  border:3px solid #fff;
+  border-radius:50%;
+  transform:scale(.62);
+}
+.account-icon:after{
+  content:"";
+  position:absolute;
+  left:-13px;
+  right:-13px;
+  top:28px;
+  height:20px;
+  border:3px solid #fff;
+  border-bottom:0;
+  border-radius:20px 20px 0 0;
+}
 
+/* SIDE MENU */
+.drawer{
+  position:fixed;
+  inset:0;
+  background:#0007;
+  z-index:100;
+  display:none;
+}
+.drawer.show{display:block}
+.drawer-box{
+  width:min(380px,88vw);
+  height:100%;
+  background:#fff;
+  overflow:auto;
+  box-shadow:5px 0 25px #0003;
+}
+.drawer-head{
+  background:var(--blue);
+  color:#fff;
+  padding:22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.drawer-head b{font-size:24px}
+.drawer-close{
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:30px;
+}
+.drawer-title{
+  font-size:22px;
+  font-weight:800;
+  padding:25px 22px 12px;
+}
+.drawer-link{
+  display:block;
+  padding:20px 22px;
+  border-bottom:1px solid var(--line);
+  font-size:18px;
+  font-weight:700;
+}
+.drawer-link:hover{background:#f5f7fb}
+
+/* HERO */
 .hero{
-  background:white;
+  background:#fff;
   text-align:center;
   padding:45px 18px 35px;
 }
-
 .hero h1{
-  font-size:42px;
-  margin:0 0 10px;
+  margin:0 0 12px;
+  font-size:40px;
+  letter-spacing:-1px;
 }
-
-.hero h1 span{
-  color:var(--gold);
-}
-
+.hero h1 span{color:var(--blue)}
 .hero p{
-  font-size:18px;
-  color:#555;
+  max-width:700px;
   margin:0 auto 22px;
-  max-width:650px;
+  color:#666;
+  font-size:18px;
+  line-height:1.55;
 }
-
-.hero a{
+.hero-btn{
   display:inline-block;
-  text-decoration:none;
-  background:#111827;
+  background:var(--blue);
   color:#fff;
-  padding:13px 22px;
-  border-radius:12px;
-  font-weight:700;
+  padding:14px 28px;
+  font-weight:800;
+  border-radius:3px;
 }
 
+/* MAIN */
 .wrap{
   max-width:1100px;
   margin:auto;
-  padding:28px 16px 60px;
+  padding:18px 22px 45px;
 }
-
 .section-title{
-  text-align:center;
-  margin:5px 0 25px;
-  font-size:28px;
+  font-size:30px;
+  margin:25px 0;
+  font-weight:900;
 }
 
-.grid{
+/* CATEGORY LOOK */
+.category-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:45px;
+}
+.category{
+  background:#fff;
+  text-align:center;
+  border:1px solid var(--line);
+  padding:10px 8px 18px;
+  transition:.2s;
+}
+.category:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px #0001;
+}
+.category-circle{
+  width:145px;
+  height:145px;
+  margin:auto;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:54px;
+  background:#eaf2ff;
+}
+.category:nth-child(2) .category-circle{background:#fff0f4}
+.category:nth-child(3) .category-circle{background:#fff4df}
+.category:nth-child(4) .category-circle{background:#e8f8ee}
+.category h3{
+  margin:15px 0 5px;
+  font-size:20px;
+}
+.category p{
+  margin:0;
+  color:#888;
 }
 
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
 .card{
   background:#fff;
-  border-radius:18px;
+  border:1px solid var(--line);
   overflow:hidden;
-  box-shadow:0 7px 25px #00000012;
-  border:1px solid #eee;
-  display:flex;
-  flex-direction:column;
+  transition:.2s;
 }
-
+.card:hover{
+  box-shadow:0 8px 25px #0001;
+  transform:translateY(-2px);
+}
 .photo{
   width:100%;
-  height:300px;
-  object-fit:cover;
-  background:#eee;
-}
-
-.normal-photo{
+  height:250px;
   object-fit:contain;
+  background:#f5f5f5;
+  display:block;
   padding:8px;
 }
-
 .cover-gallery{
+  height:250px;
   display:flex;
-  gap:6px;
-  padding:6px;
+  gap:3px;
   background:#eee;
 }
-
 .cover-gallery img{
   width:50%;
-  height:300px;
+  height:100%;
   object-fit:cover;
-  border-radius:10px;
 }
-
-.info{
-  padding:17px;
-}
-
+.info{padding:15px}
 .info h3{
   margin:0 0 8px;
-  font-size:21px;
+  font-size:18px;
+  line-height:1.3;
 }
-
 .price{
-  font-size:24px;
-  font-weight:800;
-  color:var(--green);
-  margin-bottom:14px;
+  color:var(--blue);
+  font-size:21px;
+  font-weight:900;
+  margin-bottom:13px;
 }
-
 .buy{
   width:100%;
   border:0;
-  background:#111827;
+  background:var(--blue);
   color:#fff;
   padding:12px;
-  border-radius:11px;
   font-weight:800;
   cursor:pointer;
+  border-radius:2px;
 }
+.buy:hover{background:var(--blue-dark)}
 
-.buy:hover{
-  background:#273244;
-}
-
+/* FEATURES */
 .features{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin:35px 0;
+  gap:16px;
+  margin:45px 0 15px;
 }
-
 .feature{
-  background:#fff;
-  border-radius:15px;
-  padding:20px;
+  border:1px solid var(--line);
+  padding:22px;
   text-align:center;
-  box-shadow:0 5px 18px #0000000d;
+  background:#fff;
 }
-
+.feature-icon{font-size:32px}
 .feature b{
   display:block;
   margin:8px 0;
+  font-size:17px;
 }
+.feature span{color:#777;font-size:14px}
 
-.feature div{
-  color:#666;
-  font-size:14px;
-}
-
+/* FOOTER */
 footer{
-  background:#111827;
-  color:#fff;
+  background:#fff;
+  border-top:1px solid var(--line);
   text-align:center;
-  padding:28px 16px;
+  padding:38px 20px 30px;
+}
+.footer-brand{
+  font-size:28px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+.footer-brand span{color:var(--blue)}
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+  margin:22px 0;
+}
+.social{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:25px;
+  border-radius:7px;
+}
+.fb{background:#4267a9}
+.ig{background:#222}
+.wa-social{background:#20cf68}
+.copy{color:#888;font-size:14px}
+
+/* WHATSAPP FLOAT */
+.whatsapp{
+  position:fixed;
+  left:22px;
+  bottom:92px;
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  background:var(--green);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:35px;
+  z-index:60;
+  box-shadow:0 5px 18px #0003;
+}
+.whatsapp span{
+  font-size:13px;
+  position:absolute;
+  bottom:-22px;
+  color:#555;
+  white-space:nowrap;
 }
 
-footer strong{
-  color:var(--gold);
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:76px;
+  background:#fff;
+  border-top:1px solid #ddd;
+  z-index:55;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  box-shadow:0 -3px 15px #0001;
+}
+.bottom-nav button{
+  border:0;
+  background:#fff;
+  color:#333;
+  font-weight:700;
+  font-size:13px;
+  cursor:pointer;
+  position:relative;
+}
+.bottom-icon{
+  display:block;
+  font-size:27px;
+  line-height:34px;
+}
+.badge{
+  position:absolute;
+  top:9px;
+  margin-left:4px;
+  background:var(--blue);
+  color:#fff;
+  border-radius:20px;
+  min-width:20px;
+  padding:2px 6px;
+  font-size:11px;
 }
 
+/* CART MODAL */
 .modal{
-  display:none;
   position:fixed;
   inset:0;
   background:#0008;
-  z-index:50;
-  padding:18px;
-}
-
-.modal.show{
-  display:flex;
+  z-index:150;
+  display:none;
   align-items:flex-end;
   justify-content:center;
+  padding:0;
 }
-
+.modal.show{display:flex}
 .box{
-  background:#fff;
-  width:min(560px,100%);
-  max-height:90vh;
+  width:min(600px,100%);
+  max-height:88vh;
   overflow:auto;
-  border-radius:20px 20px 0 0;
+  background:#fff;
   padding:22px;
+  border-radius:18px 18px 0 0;
 }
-
 .box-head{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
-
 .close{
+  width:38px;
+  height:38px;
   border:0;
-  background:#eee;
   border-radius:50%;
-  width:36px;
-  height:36px;
-  font-size:20px;
+  font-size:24px;
   cursor:pointer;
 }
-
 .cart-item{
   display:flex;
   justify-content:space-between;
   gap:10px;
   border-bottom:1px solid #eee;
-  padding:12px 0;
+  padding:14px 0;
 }
-
 .qty button{
   border:1px solid #ddd;
-  background:white;
-  border-radius:7px;
+  background:#fff;
+  border-radius:5px;
   padding:3px 9px;
-  cursor:pointer;
 }
-
 .total{
   font-size:22px;
-  font-weight:800;
+  font-weight:900;
   margin:18px 0;
 }
-
-.wa{
+.wa-order{
   display:block;
   text-align:center;
-  text-decoration:none;
-  background:#25D366;
-  color:white;
-  padding:14px;
-  border-radius:12px;
-  font-weight:800;
+  background:#20cf68;
+  color:#fff;
+  padding:15px;
+  font-weight:900;
+  border-radius:5px;
 }
+.empty{text-align:center;color:#888;padding:25px}
 
-.empty{
-  text-align:center;
-  color:#777;
-  padding:25px;
-}
-
+/* MOBILE */
 @media(max-width:800px){
-
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .features{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .hero h1{
-    font-size:34px;
-  }
+  .top-brand{height:72px}
+  .brand{font-size:28px}
+  .search-bar{padding:10px 14px}
+  .search-inner{gap:5px}
+  .menu-btn,.account-btn{width:42px}
+  .search{height:46px}
+  .search input{font-size:16px;padding:0 12px}
+  .search button{font-size:23px;padding:0 12px}
+  .hero{padding:35px 15px 30px}
+  .hero h1{font-size:31px}
+  .hero p{font-size:16px}
+  .category-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .products{grid-template-columns:1fr 1fr;gap:12px}
+  .photo,.cover-gallery{height:220px}
+  .features{grid-template-columns:1fr}
 }
-
 @media(max-width:520px){
-
-  .grid,
-  .features{
-    grid-template-columns:1fr;
-  }
-
-  .photo{
-    height:320px;
-  }
-
-  .cover-gallery img{
-    height:300px;
-  }
-
-  .hero h1{
-    font-size:31px;
-  }
+  .wrap{padding-left:12px;padding-right:12px}
+  .section-title{font-size:25px}
+  .category-circle{width:125px;height:125px;font-size:45px}
+  .category h3{font-size:16px}
+  .products{grid-template-columns:1fr 1fr}
+  .photo,.cover-gallery{height:190px}
+  .info{padding:11px}
+  .info h3{font-size:15px}
+  .price{font-size:18px}
+  .buy{font-size:13px;padding:10px 5px}
+  .whatsapp{left:16px;width:62px;height:62px;font-size:31px}
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- TOP LOGO -->
+<div class="top-brand">
+  <div class="brand">
+    <span class="v">Veyro</span> <span class="s">Store</span>
+    <small>EST. 2026</small>
+  </div>
+</div>
 
-  <div class="nav">
-
-    <div class="logo">
-      Veyro <span>Store</span>
-    </div>
-
-    <button class="cart-btn" onclick="openCart()">
-      🛒 Cart (<span id="count">0</span>)
+<!-- SEARCH / MENU BAR -->
+<div class="search-bar">
+  <div class="search-inner">
+    <button class="menu-btn" onclick="openMenu()" aria-label="Menu">
+      <div class="menu-icon"><span></span><span></span><span></span></div>
     </button>
 
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="Search for products" oninput="searchProducts()">
+      <button onclick="searchProducts()">⌕</button>
+    </div>
+
+    <button class="account-btn" onclick="openMenu()" aria-label="Account">
+      <div class="account-icon"></div>
+    </button>
   </div>
+</div>
 
-</header>
+<!-- SIDE MENU -->
+<div class="drawer" id="drawer" onclick="if(event.target===this)closeMenu()">
+  <div class="drawer-box">
+    <div class="drawer-head">
+      <b>Veyro Store</b>
+      <button class="drawer-close" onclick="closeMenu()">×</button>
+    </div>
 
+    <div class="drawer-title">Menu</div>
+    <a class="drawer-link" href="#" onclick="closeMenu()">Home</a>
+    <a class="drawer-link" href="#products" onclick="closeMenu()">Shop</a>
+    <a class="drawer-link" href="#categories" onclick="closeMenu()">Categories</a>
+    <a class="drawer-link" href="#about" onclick="closeMenu()">About Us</a>
+    <a class="drawer-link" href="#contact" onclick="closeMenu()">Contact Us</a>
 
+    <div class="drawer-title">Categories</div>
+    <a class="drawer-link" href="#products">Mobile Covers</a>
+    <a class="drawer-link" href="#products">Handsfree</a>
+    <a class="drawer-link" href="#products">Cables</a>
+    <a class="drawer-link" href="#products">Wallets</a>
+  </div>
+</div>
+
+<!-- HERO -->
 <section class="hero">
-
-  <h1>
-    Welcome to <span>Veyro Store</span>
-  </h1>
-
+  <h1>Welcome to <span>Veyro Store</span></h1>
   <p>
     Quality mobile accessories, leather wallets and everyday products —
-    with easy WhatsApp ordering in Pakistan.
+    easy ordering and delivery across Pakistan.
   </p>
-
-  <a href="#products">
-    Shop Now
-  </a>
-
+  <a class="hero-btn" href="#categories">Shop Now</a>
 </section>
 
+<main class="wrap">
 
-<main class="wrap" id="products">
+  <!-- CATEGORIES -->
+  <section id="categories">
+    <h2 class="section-title">Popular Categories</h2>
 
-  <h2 class="section-title">
-    Our Products
-  </h2>
+    <div class="category-grid">
+      <a class="category" href="#products">
+        <div class="category-circle">📱</div>
+        <h3>Mobile Covers</h3>
+        <p>Phone protection</p>
+      </a>
 
+      <a class="category" href="#products">
+        <div class="category-circle">🎧</div>
+        <h3>Handsfree</h3>
+        <p>Audio accessories</p>
+      </a>
 
-  <div class="grid">
+      <a class="category" href="#products">
+        <div class="category-circle">🔌</div>
+        <h3>Cables</h3>
+        <p>Charging & data</p>
+      </a>
 
+      <a class="category" href="#products">
+        <div class="category-circle">👛</div>
+        <h3>Wallets</h3>
+        <p>Leather wallets</p>
+      </a>
+    </div>
+  </section>
 
-    <!-- LEATHER WALLET -->
+  <!-- PRODUCTS -->
+  <section id="products">
+    <h2 class="section-title">Our Products</h2>
 
-    <article class="card">
+    <div class="products" id="productGrid">
 
-      <img
-        class="photo normal-photo"
-        src="wallet.png"
-        alt="Brown Leather Wallet"
-      >
-
-      <div class="info">
-
-        <h3>
-          Leather Wallet
-        </h3>
-
-        <div class="price">
-          Rs. 1,500
+      <article class="card product" data-name="leather wallet">
+        <img class="photo" src="wallet.png" alt="Brown Leather Wallet">
+        <div class="info">
+          <h3>Leather Wallet</h3>
+          <div class="price">Rs. 1,500</div>
+          <button class="buy" onclick="add(1)">Add to Cart</button>
         </div>
+      </article>
 
-        <button class="buy" onclick="add(1)">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- RONIN HANDSFREE -->
-
-    <article class="card">
-
-      <img
-        class="photo normal-photo"
-        src="ronin-handsfree.jpeg"
-        alt="Ronin R-29 Handsfree"
-      >
-
-      <div class="info">
-
-        <h3>
-          Ronin R-29 Handsfree
-        </h3>
-
-        <div class="price">
-          Rs. 1,000
+      <article class="card product" data-name="ronin r-29 handsfree">
+        <img class="photo" src="ronin-handsfree.jpeg" alt="Ronin R-29 Handsfree">
+        <div class="info">
+          <h3>Ronin R-29 Handsfree</h3>
+          <div class="price">Rs. 1,000</div>
+          <button class="buy" onclick="add(2)">Add to Cart</button>
         </div>
+      </article>
 
-        <button class="buy" onclick="add(2)">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- TYPE C CABLE -->
-
-    <article class="card">
-
-      <img
-        class="photo normal-photo"
-        src="type-c-cable.jpeg"
-        alt="Type-C Cable"
-      >
-
-      <div class="info">
-
-        <h3>
-          Type-C Cable
-        </h3>
-
-        <div class="price">
-          Rs. 350
+      <article class="card product" data-name="type-c cable">
+        <img class="photo" src="type-c-cable.jpeg" alt="Type-C Cable">
+        <div class="info">
+          <h3>Type-C Cable</h3>
+          <div class="price">Rs. 350</div>
+          <button class="buy" onclick="add(3)">Add to Cart</button>
         </div>
+      </article>
 
-        <button class="buy" onclick="add(3)">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </article>
-
-
-    <!-- IPHONE XS MAX COVER -->
-
-    <article class="card">
-
-      <div class="cover-gallery">
-
-        <img
-          src="IMG_9575.jpeg"
-          alt="iPhone XS Max Leather Flip Cover Front"
-        >
-
-        <img
-          src="IMG_9576.jpeg"
-          alt="iPhone XS Max Leather Flip Cover Open"
-        >
-
-      </div>
-
-      <div class="info">
-
-        <h3>
-          iPhone XS Max Leather Flip Cover
-        </h3>
-
-        <div class="price">
-          Rs. 1,299
+      <article class="card product" data-name="iphone xs max leather flip cover iphone cover">
+        <div class="cover-gallery">
+          <img src="IMG_9575.jpeg" alt="iPhone XS Max Leather Flip Cover Front">
+          <img src="IMG_9576.jpeg" alt="iPhone XS Max Leather Flip Cover Open">
         </div>
-
-        <button class="buy" onclick="add(4)">
-          Add to Cart
-        </button>
-
-      </div>
-
-    </article>
-
-  </div>
-
-
-  <div class="features">
-
-    <div class="feature">
-
-      🚚
-
-      <b>
-        Pakistan Delivery
-      </b>
-
-      <div>
-        Order from anywhere in Pakistan.
-      </div>
+        <div class="info">
+          <h3>iPhone XS Max Leather Flip Cover</h3>
+          <div class="price">Rs. 1,299</div>
+          <button class="buy" onclick="add(4)">Add to Cart</button>
+        </div>
+      </article>
 
     </div>
+  </section>
 
-
+  <!-- FEATURES -->
+  <div class="features" id="about">
     <div class="feature">
-
-      💬
-
-      <b>
-        WhatsApp Ordering
-      </b>
-
-      <div>
-        Send your cart directly on WhatsApp.
-      </div>
-
+      <div class="feature-icon">🚚</div>
+      <b>Pakistan Delivery</b>
+      <span>Order from anywhere in Pakistan.</span>
     </div>
-
-
     <div class="feature">
-
-      📱
-
-      <b>
-        Mobile Friendly
-      </b>
-
-      <div>
-        Designed for iPhone and Android.
-      </div>
-
+      <div class="feature-icon">💬</div>
+      <b>WhatsApp Ordering</b>
+      <span>Send your cart directly on WhatsApp.</span>
     </div>
-
+    <div class="feature">
+      <div class="feature-icon">📱</div>
+      <b>Mobile Friendly</b>
+      <span>Designed for iPhone and Android.</span>
+    </div>
   </div>
 
 </main>
 
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-brand">Veyro <span>Store</span></div>
+  <div>Mobile Accessories • Wallets • Everyday Products</div>
 
-<footer>
+  <div class="socials">
+    <a class="social fb" href="#" aria-label="Facebook">f</a>
+    <a class="social ig" href="#" aria-label="Instagram">◎</a>
+    <a class="social wa-social" href="https://wa.me/923183363084" aria-label="WhatsApp">◔</a>
+  </div>
 
-  <strong>
-    Veyro Store
-  </strong>
-
-  <br>
-
-  <small>
-    Mobile Accessories • Wallets • Everyday Products
-  </small>
-
+  <div class="copy">© 2026 Veyro Store. All rights reserved.</div>
 </footer>
 
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/923183363084" target="_blank" rel="noopener" aria-label="WhatsApp">
+  ◔
+  <span>WhatsApp</span>
+</a>
 
-<div
-  class="modal"
-  id="modal"
-  onclick="if(event.target===this)closeCart()"
->
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <button onclick="openMenu()">
+    <span class="bottom-icon">☰</span>
+    Menu
+  </button>
 
+  <button onclick="document.getElementById('categories').scrollIntoView()">
+    <span class="bottom-icon">♡</span>
+    Categories
+  </button>
+
+  <button onclick="document.getElementById('products').scrollIntoView()">
+    <span class="bottom-icon">⇄</span>
+    Shop
+  </button>
+
+  <button onclick="openCart()">
+    <span class="bottom-icon">🛒<span class="badge" id="count">0</span></span>
+    Cart
+  </button>
+</nav>
+
+<!-- CART -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeCart()">
   <div class="box">
-
     <div class="box-head">
-
-      <h2>
-        Your Cart
-      </h2>
-
-      <button
-        class="close"
-        onclick="closeCart()"
-      >
-        ×
-      </button>
-
+      <h2>Your Cart</h2>
+      <button class="close" onclick="closeCart()">×</button>
     </div>
-
 
     <div id="items"></div>
 
-
     <div class="total">
-
-      Total: Rs.
-
-      <span id="total">
-        0
-      </span>
-
+      Total: Rs. <span id="total">0</span>
     </div>
 
-
-    <a
-      id="wa"
-      class="wa"
-      target="_blank"
-      rel="noopener"
-    >
+    <a id="wa" class="wa-order" target="_blank" rel="noopener">
       💬 Order on WhatsApp
     </a>
-
   </div>
-
 </div>
 
-
 <script>
-
-const products = {
-
-  1:{
-    name:"Leather Wallet",
-    price:1500
-  },
-
-  2:{
-    name:"Ronin R-29 Handsfree",
-    price:1000
-  },
-
-  3:{
-    name:"Type-C Cable",
-    price:350
-  },
-
-  4:{
-    name:"iPhone XS Max Leather Flip Cover",
-    price:1299
-  }
-
+const products={
+  1:{name:"Leather Wallet",price:1500},
+  2:{name:"Ronin R-29 Handsfree",price:1000},
+  3:{name:"Type-C Cable",price:350},
+  4:{name:"iPhone XS Max Leather Flip Cover",price:1299}
 };
 
-
-let cart =
-  JSON.parse(
-    localStorage.getItem("veyroCart") || "{}"
-  );
-
+let cart=JSON.parse(localStorage.getItem("veyroCart")||"{}");
 
 function save(){
-
-  localStorage.setItem(
-    "veyroCart",
-    JSON.stringify(cart)
-  );
-
+  localStorage.setItem("veyroCart",JSON.stringify(cart));
   render();
-
 }
-
 
 function add(id){
-
-  cart[id] =
-    (cart[id] || 0) + 1;
-
+  cart[id]=(cart[id]||0)+1;
   save();
-
   openCart();
-
 }
-
 
 function change(id,d){
-
-  cart[id] =
-    (cart[id] || 0) + d;
-
-  if(cart[id] <= 0){
-
-    delete cart[id];
-
-  }
-
+  cart[id]=(cart[id]||0)+d;
+  if(cart[id]<=0) delete cart[id];
   save();
-
 }
-
 
 function render(){
-
-  let count = 0;
-
-  let total = 0;
-
-  let html = "";
-
+  let count=0,total=0,html="";
 
   for(const id in cart){
+    const p=products[id];
+    const q=cart[id];
+    count+=q;
+    total+=p.price*q;
 
-    const p = products[id];
-
-    const q = cart[id];
-
-    count += q;
-
-    total += p.price * q;
-
-
-    html += `
-
+    html+=`
       <div class="cart-item">
-
         <div>
-
-          <b>
-            ${p.name}
-          </b>
-
-          <br>
-
-          Rs.
-          ${p.price.toLocaleString()}
-
+          <b>${p.name}</b><br>
+          Rs. ${p.price.toLocaleString()}
         </div>
-
-
         <div class="qty">
-
-          <button
-            onclick="change(${id},-1)"
-          >
-            −
-          </button>
-
+          <button onclick="change(${id},-1)">−</button>
           ${q}
-
-          <button
-            onclick="change(${id},1)"
-          >
-            +
-          </button>
-
+          <button onclick="change(${id},1)">+</button>
         </div>
-
       </div>
-
     `;
-
   }
 
+  document.getElementById("count").textContent=count;
+  document.getElementById("total").textContent=total.toLocaleString();
+  document.getElementById("items").innerHTML=
+    html||'<div class="empty">Your cart is empty.</div>';
 
-  document.getElementById("count")
-    .textContent = count;
-
-
-  document.getElementById("total")
-    .textContent =
-    total.toLocaleString();
-
-
-  document.getElementById("items")
-    .innerHTML =
-    html ||
-    '<div class="empty">Your cart is empty.</div>';
-
-
-  let msg =
-    "Assalam-o-Alaikum, I want to order from Veyro Store:%0A%0A";
-
+  let msg="Assalam-o-Alaikum, I want to order from Veyro Store:%0A%0A";
 
   for(const id in cart){
-
-    msg +=
-      `${products[id].name} x ${cart[id]} = Rs. ${(products[id].price * cart[id]).toLocaleString()}%0A`;
-
+    msg+=`${products[id].name} x ${cart[id]} = Rs. ${(products[id].price*cart[id]).toLocaleString()}%0A`;
   }
 
+  msg+=`%0ATotal: Rs. ${total.toLocaleString()}%0A%0AName:%0AAddress:%0APhone:`;
 
-  msg +=
-    `%0ATotal: Rs. ${total.toLocaleString()}%0A%0AName:%0AAddress:%0APhone:`;
-
-
-  document.getElementById("wa").href =
-    "https://wa.me/923183363084?text=" + msg;
-
+  document.getElementById("wa").href=
+    "https://wa.me/923183363084?text="+msg;
 }
-
 
 function openCart(){
-
-  document
-    .getElementById("modal")
-    .classList.add("show");
-
+  document.getElementById("modal").classList.add("show");
   render();
-
 }
-
 
 function closeCart(){
-
-  document
-    .getElementById("modal")
-    .classList.remove("show");
-
+  document.getElementById("modal").classList.remove("show");
 }
 
+function openMenu(){
+  document.getElementById("drawer").classList.add("show");
+}
+
+function closeMenu(){
+  document.getElementById("drawer").classList.remove("show");
+}
+
+function searchProducts(){
+  const q=document.getElementById("searchInput").value.toLowerCase().trim();
+  document.querySelectorAll(".product").forEach(card=>{
+    const name=card.dataset.name||"";
+    card.style.display=!q||name.includes(q)?"block":"none";
+  });
+}
 
 render();
-
 </script>
 
 </body>
